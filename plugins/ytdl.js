@@ -5,7 +5,7 @@ const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');
 // video
 
 cmd({ 
-    pattern: "ytmp4", 
+    pattern: "video", 
     react: "🎥", 
     desc: "Download Youtube song", 
     category: "main", 
@@ -28,13 +28,18 @@ cmd({
             return reply("Failed to fetch the video. Please try again later.");
         }
         
-        let ytmsg = `╭━━━〔 🎶*DARK SHADOW MUSIC DOWNLOADER🎶*
+        let ytmsg = ` *🎶DARK SHADOW VIDEO DOWNLOADER🎶*
+        
 ╭━━❐━⪼
-┇✦ *Title* -  ${yts.title}
-┇✦ *Duration* - ${yts.timestamp}
-┇✦ *Views* -  ${yts.views}
-┇✦ *Author* -  ${yts.author.name}
-┇✦ *Link* -  ${yts.url}
+┇✦ *📃Title* -  ${yts.title}
+
+┇✦ *⏳Duration* - ${yts.timestamp}
+
+┇✦ *🗓️Views* -  ${yts.views}
+
+┇✦ *👤Author* -  ${yts.author.name}
+
+┇✦ *🔗Link* -  ${yts.url}
 ╰━━❑━⪼`;
 
         // Send video details
@@ -60,7 +65,7 @@ cmd({
 // play
 
 cmd({ 
-     pattern: "ytmp3", 
+     pattern: "song", 
      react: "🎶", 
      desc: "Download Youtube song",
      category: "main", 
@@ -83,17 +88,18 @@ const yt = await ytsearch(q);
         return reply("Failed to fetch the audio. Please try again later.");
     }
     
-    let ytmsg = `╭━━━〔 *DARK SHADOW-MD* 〕━━━┈⊷
-┃▸╭───────────
-┃▸┃๏ *MUSIC DOWNLOADER*
-┃▸└───────────···๏
-╰────────────────┈⊷
+    let ytmsg = ` *📽️DARK SHADOW SONG DOWNLOADER 📽️*
+    
 ╭━━❐━⪼
-┇๏ *Tital* -  ${yts.title}
-┇๏ *Duration* - ${yts.timestamp}
-┇๏ *Views* -  ${yts.views}
-┇๏ *Author* -  ${yts.author.name} 
-┇๏ *Link* -  ${yts.url}
+┇✦ *📃Tital* -  ${yts.title}
+
+┇✦ *⏳Duration* - ${yts.timestamp
+                   
+┇✦ *🗓️Views* -  ${yts.views}
+
+┇✦ *👤Author* -  ${yts.author.name} 
+
+┇✦ *🔗Link* -  ${yts.url}
 ╰━━❑━⪼
 > *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*`;
 
