@@ -28,17 +28,13 @@ cmd({
             return reply("Failed to fetch the video. Please try again later.");
         }
         
-        let ytmsg = `╭━━━〔 *DARK SHADOW-MD* 〕━━━┈⊷
-┃▸╭───────────
-┃▸┃๏ *VIDEO DOWNLOADER*
-┃▸└───────────···๏
-╰────────────────┈⊷
+        let ytmsg = `╭━━━〔 🎶*DARK SHADOW MUSIC DOWNLOADER🎶*
 ╭━━❐━⪼
-┇๏ *Title* -  ${yts.title}
-┇๏ *Duration* - ${yts.timestamp}
-┇๏ *Views* -  ${yts.views}
-┇๏ *Author* -  ${yts.author.name}
-┇๏ *Link* -  ${yts.url}
+┇✦ *Title* -  ${yts.title}
+┇✦ *Duration* - ${yts.timestamp}
+┇✦ *Views* -  ${yts.views}
+┇✦ *Author* -  ${yts.author.name}
+┇✦ *Link* -  ${yts.url}
 ╰━━❑━⪼`;
 
         // Send video details
