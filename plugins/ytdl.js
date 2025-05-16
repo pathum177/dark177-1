@@ -5,7 +5,7 @@ const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');
 // video
 
 cmd({ 
-    pattern: "ytmp4,video", 
+    pattern: "ytmp4", 
     react: "🎥", 
     desc: "Download Youtube song", 
     category: "main", 
@@ -19,7 +19,7 @@ cmd({
         if (yt.results.length < 1) return reply("No results found!");
         
         let yts = yt.results[0];  
-        let apiUrl = `https://apis.davidcyriltech.my.id/download/ytmp4?url=${encodeURIComponent(yts.url)}`;
+        let apiUrl = https://apis.davidcyriltech.my.id/download/ytmp4?url=${encodeURIComponent(yts.url)};
         
         let response = await fetch(apiUrl);
         let data = await response.json();
@@ -28,17 +28,17 @@ cmd({
             return reply("Failed to fetch the video. Please try again later.");
         }
         
-        let ytmsg = `╭━━━〔 *DARK SHADOW-MD* 〕━━━┈⊷
+        let ytmsg = `╭━━━〔 DARK SHADOW-MD 〕━━━┈⊷
 ┃▸╭───────────
-┃▸┃๏ *VIDEO DOWNLOADER*
+┃▸┃๏ VIDEO DOWNLOADER
 ┃▸└───────────···๏
 ╰────────────────┈⊷
 ╭━━❐━⪼
-┇๏ *📃Title* -  ${yts.title}
-┇๏ *⏳Duration* - ${yts.timestamp}
-┇๏ *🗓️Views* -  ${yts.views}
-┇๏ *👤Author* -  ${yts.author.name}
-┇๏ *🔗Link* -  ${yts.url}
+┇๏ Title -  ${yts.title}
+┇๏ Duration - ${yts.timestamp}
+┇๏ Views -  ${yts.views}
+┇๏ Author -  ${yts.author.name}
+┇๏ Link -  ${yts.url}
 ╰━━❑━⪼`;
 
         // Send video details
@@ -51,8 +51,8 @@ cmd({
         await conn.sendMessage(from, { 
             document: { url: data.result.download_url }, 
             mimetype: "video/mp4", 
-            fileName: `${data.result.title}.mp4`, 
-            caption: `> *${yts.title}*\n> *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*`
+            fileName: ${data.result.title}.mp4, 
+            caption: > *${yts.title}*\n> *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*
         }, { quoted: mek });
 
     } catch (e) {
@@ -64,7 +64,7 @@ cmd({
 // play
 
 cmd({ 
-     pattern: "ytmp3,song", 
+     pattern: "ytmp3", 
      react: "🎶", 
      desc: "Download Youtube song",
      category: "main", 
@@ -78,7 +78,7 @@ const yt = await ytsearch(q);
     if (yt.results.length < 1) return reply("No results found!");
     
     let yts = yt.results[0];  
-    let apiUrl = `https://apis.davidcyriltech.my.id/youtube/mp3?url=${encodeURIComponent(yts.url)}`;
+    let apiUrl = https://apis.davidcyriltech.my.id/youtube/mp3?url=${encodeURIComponent(yts.url)};
     
     let response = await fetch(apiUrl);
     let data = await response.json();
@@ -87,19 +87,19 @@ const yt = await ytsearch(q);
         return reply("Failed to fetch the audio. Please try again later.");
     }
     
-    let ytmsg = `╭━━━〔 *DARK SHADOW-MD* 〕━━━┈⊷
+    let ytmsg = `╭━━━〔 DARK SHADOW-MD 〕━━━┈⊷
 ┃▸╭───────────
-┃▸┃๏ *MUSIC DOWNLOADER*
+┃▸┃๏ MUSIC DOWNLOADER
 ┃▸└───────────···๏
 ╰────────────────┈⊷
 ╭━━❐━⪼
-┇๏ *📃Tital* -  ${yts.title}
-┇๏ *⏳Duration* - ${yts.timestamp}
-┇๏ *🗓️Views* -  ${yts.views}
-┇๏ *👤Author* -  ${yts.author.name} 
-┇๏ *🔗Link* -  ${yts.url}
+┇๏ Tital -  ${yts.title}
+┇๏ Duration - ${yts.timestamp}
+┇๏ Views -  ${yts.views}
+┇๏ Author -  ${yts.author.name} 
+┇๏ Link -  ${yts.url}
 ╰━━❑━⪼
-> *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*`;
+> © Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡`;
 
 
 
@@ -113,8 +113,8 @@ const yt = await ytsearch(q);
     await conn.sendMessage(from, { 
         document: { url: data.result.downloadUrl }, 
         mimetype: "audio/mpeg", 
-        fileName: `${data.result.title}.mp3`, 
-        caption: `> *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*`
+        fileName: ${data.result.title}.mp3, 
+        caption: > *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*
     }, { quoted: mek });
 
 } catch (e) {
