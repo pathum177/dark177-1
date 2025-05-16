@@ -4,13 +4,13 @@ const axios = require("axios");
 
 cmd({
   pattern: "play",
-  alias: ["yt", "play4", "play5", "audio"],
+  alias: ["yt", "song", "video", "audio"],
   desc: "Download YouTube videos",
   category: "download",
   filename: __filename
 }, async (conn, m, store, { from, quoted, args, q, reply }) => {
   try {
-    if (!q) return reply("*`Please provide a YouTube link or title!`*");
+    if (!q) return reply("Please provide a YouTube link or title!");
 
     await conn.sendMessage(from, { react: { text: '⏳', key: m.key } });
 
@@ -21,42 +21,42 @@ cmd({
     // If the user provides a title instead of a link
     if (!q.startsWith("https://")) {
       const searchResults = await yts(q);
-      if (!searchResults.videos.length) return reply("*No results found!*");
+      if (!searchResults.videos.length) return reply("No results found!");
 
       searchData = searchResults.videos[0];
       videoUrl = searchData.url;
       videoID = searchData.videoId;
     } else {
       // Extract video ID from URL
-      const match = q.match(/(?:youtu\.be\/|youtube\.com\/(?:.*v=|.*\/|.*vi?=))([^&?/\s]+)/);
+      const match = q.match(/(?:youtu\.be\/|youtube\.com\/(?:.v=|.\/|.*vi?=))([^&?/\s]+)/);
       videoID = match ? match[1] : null;
     }
 
     // Fetch download link from API
-    const { data } = await axios.get(`https://velyn.vercel.app/api/downloader/ytmp4?url=${videoUrl}`);
-    if (!data.status) return reply("*Failed to fetch video!*");
+    const { data } = await axios.get(https://velyn.vercel.app/api/downloader/ytmp4?url=${videoUrl});
+    if (!data.status) return reply("Failed to fetch video!");
 
     const ytData = searchData || {
       title: data.data.title,
-      thumbnail: videoID ? `https://i.ytimg.com/vi/${videoID}/maxresdefault.jpg` : null,
+      thumbnail: videoID ? https://i.ytimg.com/vi/${videoID}/maxresdefault.jpg : null,
       timestamp: "Unknown",
       author: "Unknown",
       views: "Unknown",
       ago: "Unknown"
     };
 
-    const caption = `🎥 *DARK SHADOW YT DOWNLOADER* 🎥\n`      
-      + `┃ 🗒️ *Title:* ${ytData.title}\n`
-      + `┃ 🎭 *Channel:* ${ytData.author.name || "Unknown"}\n`
-      + `┃ 👁‍🗨 *Views:* ${ytData.views}\n`
-      + `┃ 🕒 *Uploaded:* ${ytData.ago}\n`
-      + `┃ ⏳ *Duration:* ${ytData.timestamp}\n`
-      + `╰━━━━━━━━━━━━━━━⪼\n\n`
-      + `🔢 *SelectNumber Download Options:*\n`
-      + `*1*  *Video🎬*\n`
-      + `*2*  *Document📂*\n`
-      + `*3*  *Audio🎶*\n\n`
-      + `📌 *Reply with the number to download in your choice.*`;
+    const caption = 🎥 *DARK SHADOW YT DOWNLOADER* 🎥\n      
+      + ┃ 🗒️ *Title:* ${ytData.title}\n
+      + ┃ 🎭 *Channel:* ${ytData.author.name || "Unknown"}\n
+      + ┃ 👁‍🗨 *Views:* ${ytData.views}\n
+      + ┃ 🕒 *Uploaded:* ${ytData.ago}\n
+      + ┃ ⏳ *Duration:* ${ytData.timestamp}\n
+      + ╰━━━━━━━━━━━━━━━⪼\n\n
+      + 🔢 *SelectNumber Download Options:*\n
+      + *1*  *Video🎬*\n
+      + *2*  *Document📂*\n
+      + *3*  *Audio🎶*\n\n
+      + 📌 *Reply with the number to download in your choice.*;
 
     const sentMsg = await conn.sendMessage(from, {
       image: { url: ytData.thumbnail || "https://i.ibb.co/4pzL3v2/no-thumbnail.jpg" },
@@ -92,7 +92,7 @@ cmd({
           case "1":
             await conn.sendMessage(senderID, {
               video: { url: downloadLink },
-              caption: "*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ᴍᴅ*"
+              caption: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ᴍᴅ"
             }, { quoted: receivedMsg });
             break;
 
@@ -100,8 +100,8 @@ cmd({
             await conn.sendMessage(senderID, {
               document: { url: downloadLink },
               mimetype: "video/mp4",
-              fileName: `${ytData.title}.mp4`,
-              caption: "*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ᴍᴅ*"
+              fileName: ${ytData.title}.mp4,
+              caption: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ᴍᴅ"
             }, { quoted: receivedMsg });
             break;
 
@@ -122,6 +122,6 @@ cmd({
 
   } catch (error) {
     console.log(error);
-    reply("⚠️ *Error fetching video!*");
+    reply("⚠️ Error fetching video!");
   }
 });
