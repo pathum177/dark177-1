@@ -15,7 +15,7 @@ cmd({
 async (conn, mek, m, { from, isOwner, quoted, reply }) => {
     if (!isOwner) return reply("❌ You are not the owner!");
     try {
-        let desc = `* _𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃 𝑺𝑬𝑻𝑻𝑰𝑵𝑮𝑺....⚙️_
+        let desc = `* _ 𝓓𝓐𝓡𝓚 𝓢𝓗𝓐𝓓𝓞𝓦 𝑺𝑬𝑻𝑻𝑰𝑵𝑮𝑺....⚙️_
 
 
 ╭══════════════════════○
@@ -64,9 +64,9 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
 ╰═══════════════════════○
 
 
-* *🔢 Reply Below This Number Change To 𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃 Bot Change Setting*
+* *🔢 Reply Below This Number Change To DARK SHADOW Bot Change Setting*
 
-> *🄿🄾🅆🄴🅁🄳 🅱🆈 𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃 😈*`;
+> *🄿🄾🅆🄴🅁🄳 🅱🆈 DARK SHADOW-MD 😈*`;
 
         const vv = await conn.sendMessage(from, { image: { url: "https://files.catbox.moe/xawfez.jpg"}, caption: desc }, { quoted: mek });
 
