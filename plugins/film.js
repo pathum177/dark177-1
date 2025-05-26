@@ -128,7 +128,7 @@ cmd({
     }
 
 
-let filmListMessage = "📢 *\`𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃\`*\n\n🎥 *Movie Search Results*\n*Reply Number ⤵️*\n\n";
+let filmListMessage = "📢 *\`DARK SHADOW\`*\n\n🎥 *Movie Search Results*\n*Reply Number ⤵️*\n\n";
 const numberEmojis = ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"];
 
 films.forEach((film, index) => {
@@ -139,13 +139,13 @@ films.forEach((film, index) => {
 
 
     const sentMessage = await conn.sendMessage(from, { 
-image:{url: "https://files.catbox.moe/3kal79.jpg"},
+image:{url: "https://telegra.ph/file/1ece2e0281513c05d20ee.jpg"},
     caption: `${filmListMessage}`,
      contextInfo: {
                forwardingScore: 1,
                 isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363398661137791@newsletter',
+          newsletterJid: '',
           newsletterName: "𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃",
           serverMessageId: 999,
         }
@@ -170,7 +170,7 @@ image:{url: "https://files.catbox.moe/3kal79.jpg"},
 
                                                                       const film = films[selectedIndex];
 
-let filmDetailsMessage = `📢 *\`𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃\`*\n\n* *🎬 ${film.filmName}* (${film.year})\n`;
+let filmDetailsMessage = `📢 *\`DARK SHADOW\`*\n\n* *🎬 ${film.filmName}* (${film.year})\n`;
 filmDetailsMessage += `* *⭐ IMDb: ${film.imdb}*\n`;
 filmDetailsMessage += `* *📝 ${film.description}*\n\n`;
 
