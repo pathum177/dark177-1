@@ -1,52 +1,45 @@
-//const fetch = require("node-fetch");
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, sleep, fetchJson} = require('../lib/functions')
-const { cmd } = require("../command");
-
-// get pair 2
+const { cmd, commands } = require('../command');
+const axios = require('axios');
 
 cmd({
     pattern: "pair",
     alias: ["getpair", "clonebot"],
     react: "✅",
-    desc: "Pairing code",
+    desc: "Get pairing code for DARK-SHADOW-MD bot",
     category: "download",
-    use: ".pair ++94773416XXX",
+    use: ".pair 94773416XXX",
     filename: __filename
-}, 
-async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
+}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, senderNumber, reply }) => {
     try {
-        // Helper function for delay
-        const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        // Extract phone number from command
+        const phoneNumber = q ? q.trim().replace(/[^0-9]/g, '') : senderNumber.replace(/[^0-9]/g, '');
 
-        // Validate input
-        if (!q) {
-            return await reply("*Example -* .pair +9477341XXX");
+        // Validate phone number format
+        if (!phoneNumber || phoneNumber.length < 10 || phoneNumber.length > 15) {
+            return await reply("❌ Please provide a valid phone number without `+`\nExample: `.pair 94773416XXX`");
         }
 
-        // Fetch pairing code
-        //const fetch = require("node-fetch");
-        const response = await fetch(`https://shadow3-83a829ba6c1d.herokuapp.com/=${q}`);
-        const pair = await response.json();
+        // Make API request to get pairing code
+        const response = await axios.get(`https://shadow3-83a829ba6c1d.herokuapp.com/code?number=${encodeURIComponent(phoneNumber)}`);
 
-        // Check for errors in response
-        if (!pair || !pair.code) {
-            return await reply("Failed to retrieve pairing code. Please check the phone number and try again.");
+        if (!response.data || !response.data.code) {
+            return await reply("❌ Failed to retrieve pairing code. Please try again later.");
         }
 
-        // Success response
-        const pairingCode = pair.code;
-        const doneMessage = "> *DARK SHADOW-MD PAIR COMPLETED*";
+        const pairingCode = response.data.code;
+        const doneMessage = "> *DARK-SHADOW-MD PAIRING COMPLETED*";
 
-        // Send first message
+        // Send initial message with formatting
         await reply(`${doneMessage}\n\n*Your pairing code is:* ${pairingCode}`);
 
-        // Add a delay of 2 seconds before sending the second message
-        await sleep(2000);
+        // Optional 2-second delay
+        await new Promise(resolve => setTimeout(resolve, 2000));
 
-        // Send second message with just the pairing code
-        await reply(`Code: ${pairingCode}`);
+        // Send clean code again
+        await reply(`${pairingCode}`);
+
     } catch (error) {
-        console.error(error);
-        await reply("An error occurred. Please try again later.");
+        console.error("Pair command error:", error);
+        await reply("❌ An error occurred while getting pairing code. Please try again later.");
     }
 });
