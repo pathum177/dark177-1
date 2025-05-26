@@ -29,13 +29,13 @@ const xv_info = await fetchJson(`${apilink}/download/xvideo?url=${xv_list.result
   // FIRST VIDEO
   
 const msg = `
-        🔞 *𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃 XVIDEO DOWNLOADER* 🔞
+        🔞 *DARK SHADOW XVIDEO DOWNLOADER* 🔞
     
 🥵 *Title* - ${xv_info.result.title}
 🥵 *Views* - ${xv_info.result.views}
 🥵 *Like* - ${xv_info.result.like}
 
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃 🥷`
+> *POWERED BY DARK SHADOW* 🥷`
 
 // Sending the image with caption
           const sentMsg = await conn.sendMessage(from, {
@@ -48,10 +48,10 @@ const msg = `
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
           newsletterName: '𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃',
-          newsletterJid: "120363398661137791@newsletter",
+          newsletterJid: "",
           },
           externalAdReply: {
-              title: `𝐀𝐒𝐇𝐈𝐘𝐀-𝐌𝐃 Xvideo Downloader`,
+              title: `DARK SHADOW Xvideo Downloader`,
               body: `Can't Find The Information. You Can Try Another Way. Error Code 4043`,
               thumbnailUrl: xv_info.result.image,
               sourceUrl: ``,
