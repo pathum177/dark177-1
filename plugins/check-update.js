@@ -53,7 +53,7 @@ cmd({
     const lastUpdate = fs.statSync(localVersionPath).mtime.toLocaleString();
 
     // GitHub stats
-    const githubRepo = 'https://github.com/DARK-SHADOW-NEW/KHAN-MD';
+    const githubRepo = 'https://github.com/DARK-SHADOW-NEW/SHADOW-MD';
 
     // Check update status
     let updateMessage = `✅ Your DARK SHADOW-MD bot is up-to-date!`;
