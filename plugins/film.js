@@ -206,7 +206,7 @@ image:{url: `${film.imageUrl}`},
                forwardingScore: 1,
                 isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363398661137791@newsletter',
+          newsletterJid: '',
           newsletterName: "DARK SHADOW",
           serverMessageId: 999,
         }
