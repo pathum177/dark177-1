@@ -42,28 +42,65 @@ cmd({
 ┇🔗 *Link* -  ${yts.url}
 
  ╰───────────●●►
-
++ 🔢 *SelectNumber Download Options:*\n
++ *1*  *Video🎬*\n
++ *2*  *Document📂*\n
++ *3*  *Audio🎶*\n\n
++ 📌 *Reply with the number to download in your choice.*;
 
 > © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ`;
 
-        // Send video details
-        await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
-        
-        // Send video file
-        await conn.sendMessage(from, { video: { url: data.result.download_url }, mimetype: "video/mp4" }, { quoted: mek });
-        
-        // Send document file (optional)
-        await conn.sendMessage(from, { 
-            document: { url: data.result.download_url }, 
-            mimetype: "video/mp4", 
-            fileName: `${data.result.title}.mp4`, 
-            caption: `> *${yts.title}*\n> *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*`
-        }, { quoted: mek });
+         const messageID = sentMsg.key.id;
 
-    } catch (e) {
-        console.log(e);
-        reply("An error occurred. Please try again later.");
-    }
+    conn.ev.on("messages.upsert", async (msgData) => {
+      const receivedMsg = msgData.messages[0];
+      if (!receivedMsg.message) return;
+
+      const receivedText = receivedMsg.message.conversation || receivedMsg.message.extendedTextMessage?.text;
+      const senderID = receivedMsg.key.remoteJid;
+      const isReplyToBot = receivedMsg.message.extendedTextMessage?.contextInfo?.stanzaId === messageID;
+
+      if (isReplyToBot) {
+        await conn.sendMessage(senderID, { react: { text: '⬇️', key: receivedMsg.key } });
+
+        let downloadLink = data.data.url;
+
+        switch (receivedText) {
+          case "1":
+            await conn.sendMessage(senderID, {
+              video: { url: downloadLink },
+              caption: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ᴍᴅ"
+            }, { quoted: receivedMsg });
+            break;
+
+          case "2":
+            await conn.sendMessage(senderID, {
+              document: { url: downloadLink },
+              mimetype: "video/mp4",
+              fileName: ${ytData.title}.mp4,
+              caption: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ᴍᴅ"
+            }, { quoted: receivedMsg });
+            break;
+
+          case "3":
+            await conn.sendMessage(senderID, {
+              audio: { url: downloadLink },
+              mimetype: "audio/mpeg"
+            }, { quoted: receivedMsg });
+            break;
+
+          default:
+            reply("❌ Invalid option! Please reply with 1, 2, or 3.");
+        }
+
+        await conn.sendMessage(senderID, { react: { text: '✅', key: receivedMsg.key } });
+      }
+    });
+
+  } catch (error) {
+    console.log(error);
+    reply("⚠️ Error fetching video!");
+        
 });  
        
 // play
