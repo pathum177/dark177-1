@@ -35,7 +35,7 @@ cmd({
 
 ┇⏱️ *Duration* - ${yts.timestamp}
 
-┇📌*Views* -  ${yts.views}
+┇📌 *Views* -  ${yts.views}
 
 ┇👤 *Author* -  ${yts.author.name}
 
@@ -99,7 +99,7 @@ const yt = await ytsearch(q);
 
 ┇⏱️ *Duration* - ${yts.timestamp}
 
-┇📌*Views* -  ${yts.views}
+┇📌 *Views* -  ${yts.views}
 
 ┇👤 *Author* -  ${yts.author.name}
 
