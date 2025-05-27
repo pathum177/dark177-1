@@ -4,7 +4,7 @@ const config = require('../config');
 const {sleep} = require('../lib/functions')
 
 cmd({
-  pattern: "bug",
+  pattern: "bugg4",
   use: ".canvasbug <@user> or <number>",
   category: "fun",
   desc: "Canvas Bug Function by Didula Rashmika",
