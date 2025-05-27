@@ -28,11 +28,8 @@ cmd({
             return reply("Failed to fetch the video. Please try again later.");
         }
         
-        let ytmsg = `╭━━━〔 *DARK SHADOW-MD* 〕━━━┈⊷
-┃▸╭───────────
-┃▸┃๏ *VIDEO DOWNLOADER*
-┃▸└───────────···๏
-╰────────────────┈⊷
+        let ytmsg = `*🎵DARK SHADOW VIDEO DOWNLOADER🎵* 
+
 ╭━━❐━⪼
 ┇๏ *Title* -  ${yts.title}
 ┇๏ *Duration* - ${yts.timestamp}
