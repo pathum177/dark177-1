@@ -1,54 +1,53 @@
-import fs from 'fs';
+const { cmd } = require("../command");
+const { getRandom } = require('../lib/functions');
+const fs = require('fs');
 
-const= async (m, gss) => {
-  try {
-    const textLower = m.body.toLowerCase();
+cmd(
+{
+  on: "body"
+},
+async (robin, mek, m, { from, body }) => {
+  if (!m.quoted || !mek || !mek.message || !body) return;
 
-    const triggerWords = [
-      'send', 'dapn', 'dapanko', 'evanna', 'ewanna', 'dpn', 'ewpn',
-      'send me', 'sent me', 'mt ona', 'ewahan', 'dannako', 'save', 'save me'
-    ];
+  const data = JSON.stringify(mek.message, null, 2);
+  const jsonData = JSON.parse(data);
+  const isStatus = jsonData?.extendedTextMessage?.contextInfo?.remoteJid;
 
-    if (triggerWords.includes(textLower)) {
-      if (m.message && m.message.extendedTextMessage && m.message.extendedTextMessage.contextInfo) {
-        const quotedMessage = m.message.extendedTextMessage.contextInfo.quotedMessage;
+  if (!isStatus) return;
 
-        if (quotedMessage) {
-          // Check if it's an image
-          if (quotedMessage.imageMessage) {
-            const imageCaption = quotedMessage.imageMessage.caption;
-            const imageUrl = await gss.downloadAndSaveMediaMessage(quotedMessage.imageMessage);
-            await gss.sendMessage(m.from, {
-              image: { url: imageUrl },
-              caption: imageCaption,
-              contextInfo: {
-                mentionedJid: [m.sender],
-                forwardingScore: 9999,
-                isForwarded: true,
-              },
-            });
-          }
+  let bdy = body.toLowerCase();
+  let keywords = ["දියම්", "දෙන්න", "දාන්න", "එවන්න", "ඕන", "ඕනා", "එවපන්", "දාපන්", "එව්පන්", "send", "give", "ewpn", "ewapan", "ewanna", "danna", "dpn", "dapan", "ona", "daham", "diym", "dhm", "save", "status", "ඕනි", "ඕනී", "ewm", "ewnn"];
+  let kk = keywords.map(word => word.toLowerCase());
 
-          // Check if it's a video
-          if (quotedMessage.videoMessage) {
-            const videoCaption = quotedMessage.videoMessage.caption;
-            const videoUrl = await gss.downloadAndSaveMediaMessage(quotedMessage.videoMessage);
-            await gss.sendMessage(m.from, {
-              video: { url: videoUrl },
-              caption: videoCaption,
-              contextInfo: {
-                mentionedJid: [m.sender],
-                forwardingScore: 9999,
-                isForwarded: true,
-              },
-            });
-          }
-        }
-      }
+  if (kk.includes(bdy)) {
+    const caption = `*DARK SHADOW MD*`;
+
+    if (m.quoted.type === 'imageMessage') {
+      let buff = await m.quoted.download();
+      return await robin.sendMessage(from, {
+        image: buff,
+        caption
+      });
+
+    } else if (m.quoted.type === 'videoMessage') {
+      let buff = await m.quoted.download();
+      return await robin.sendMessage(from, {
+        video: buff,
+        mimetype: "video/mp4",
+        fileName: `${m.id}.mp4`,
+        caption
+      }, { quoted: mek });
+
+    } else if (m.quoted.type === 'audioMessage') {
+      let buff = await m.quoted.download();
+      return await robin.sendMessage(from, {
+        audio: buff,
+        mimetype: "audio/mp3",
+        ptt: true
+      }, { quoted: mek });
+
+    } else if (m.quoted.type === 'extendedTextMessage') {
+      await robin.sendMessage(from, { text: m.quoted.msg.text });
     }
-  } catch (error) {
-    console.error('Error:', error);
   }
-};
-
-
+})
