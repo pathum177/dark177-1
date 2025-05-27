@@ -40,7 +40,8 @@ cmd({
 ┇👤 *Author* -  ${yts.author.name}
 
 ┇🔗 *Link* -  ${yts.url}
-╰━━❑━⪼
+
+ ╰───────────●●►
 
 
 > © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ`;
@@ -103,7 +104,8 @@ const yt = await ytsearch(q);
 ┇👤 *Author* -  ${yts.author.name} 
 
 ┇🔗 *Link* -  ${yts.url}
-╰━━❑━⪼
+
+ ╰───────────●●►
 
 
 > *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*`;
