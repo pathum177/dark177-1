@@ -16,7 +16,7 @@ cmd({
 }, 
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        let desc = `*DARK SHADOW MENU LIST ${pushname} *_ 
+        let desc = `*👋 𝙷𝙴𝙻𝙻𝙾𝚆* ${pushname} *𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝙳𝙰𝚁𝙺 𝚂𝙷𝙰𝙳𝙾𝚆 𝙼𝙳🎉*
   ╭─「 ᴄᴏᴍᴍᴀɴᴅꜱ ᴘᴀɴᴇʟ」 ──●●►     
  *⏳ Uptime*:  ${runtime(process.uptime())} 
  *📂 Ram usage*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
@@ -38,7 +38,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 *10┃• All MENU*
 *11┃• OWNER MENU*
 *12┃• OTHER MENU*
-╰═══════════════════○
+╰═════════════════○
 
 
 > © *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ*`;
