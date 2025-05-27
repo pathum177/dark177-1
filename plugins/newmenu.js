@@ -18,13 +18,12 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     try {
         let desc = `*👋 𝙷𝙴𝙻𝙻𝙾𝚆* *${pushname}* *𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝙳𝙰𝚁𝙺 𝚂𝙷𝙰𝙳𝙾𝚆 𝙼𝙳🎉*
         
-  ╭─「 ᴄᴏᴍᴍᴀɴᴅꜱ ᴘᴀɴᴇʟ」 ──●●►   
- *⏳ Uptime*:  ${runtime(process.uptime())} 
- *👤 User* :  *${pushname}*
- *📂 Ram usage*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
- *⚙️ HostName*: ${os.hostname()}
- *👨‍💻 Owner*: Pathum Malsara
-╰───────────●●►
+ ╭─「 ᴄᴏᴍᴍᴀɴᴅꜱ ᴘᴀɴᴇʟ」 ──●●►   
+ │ *⏳ Uptime*:  ${runtime(process.uptime())} 
+ │ *👤 User* :  *${pushname}*
+ │ *📂 Ram usage*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB │*⚙️ HostName*: ${os.hostname()}
+ │ *👨‍💻 Owner*: Pathum Malsara
+ ╰───────────●●►
 
 * *🔢 Reply Below This Number*
 ╭═════════════════○
