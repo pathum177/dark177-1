@@ -15,11 +15,22 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     if (!isOwner) return reply("❌ You are not the owner!");
     try {
-        let desc = `* _ DARK SHADOW 𝑺𝑬𝑻𝑻𝑰𝑵𝑮𝑺....⚙️_
+        let desc = `* _ DARK SHADOW MENU LIST....⚙_
 
 
 ╭══════════════════════○
-
+1┃• AI
+2┃• ANIME
+3┃• REACTION
+4┃• CONVERT
+5┃• FUN
+6┃• DOUNLOAD
+7┃• LIST
+8┃• MAIN MENUU
+9┃• GROUP MENU
+10┃• All MENU
+11┃• OWNER MENU
+12┃• OTHER MENU
 ╰═══════════════════════○
 
 
