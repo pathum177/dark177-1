@@ -11,9 +11,8 @@ cmd({
     filename: __filename
 
 
-},
+}, 
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    if (!isOwner) return reply("❌ You are not the owner!");
     try {
         let desc = `*DARK SHADOW MENU LIST*_ 
   ╭─「 ᴄᴏᴍᴍᴀɴᴅꜱ ᴘᴀɴᴇʟ」 ──●●►     
