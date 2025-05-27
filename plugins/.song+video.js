@@ -28,15 +28,21 @@ cmd({
             return reply("Failed to fetch the video. Please try again later.");
         }
         
-        let ytmsg = `*🎵DARK SHADOW VIDEO DOWNLOADER🎵* 
+        let ytmsg = `*🎥DARK SHADOW VIDEO DOWNLOADER🎥* 
 
 ╭━━❐━⪼
-┇๏ *Title* -  ${yts.title}
-┇๏ *Duration* - ${yts.timestamp}
-┇๏ *Views* -  ${yts.views}
-┇๏ *Author* -  ${yts.author.name}
-┇๏ *Link* -  ${yts.url}
-╰━━❑━⪼`;
+┇📄 *Title* -  ${yts.title}
+
+┇⏱️ *Duration* - ${yts.timestamp}
+
+┇📌*Views* -  ${yts.views}
+
+┇👤 *Author* -  ${yts.author.name}
+
+┇🔗*Link* -  ${yts.url}
+╰━━❑━⪼
+
+A`;
 
         // Send video details
         await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
@@ -84,17 +90,18 @@ const yt = await ytsearch(q);
         return reply("Failed to fetch the audio. Please try again later.");
     }
     
-    let ytmsg = `╭━━━〔 *DARK SHADOW-MD* 〕━━━┈⊷
-┃▸╭───────────
-┃▸┃๏ *MUSIC DOWNLOADER*
-┃▸└───────────···๏
-╰────────────────┈⊷
+    let ytmsg = `╭━━━〔 *🎵DARK SHADOW SONG DOWNLOADER🎵*
+    
 ╭━━❐━⪼
-┇๏ *Tital* -  ${yts.title}
-┇๏ *Duration* - ${yts.timestamp}
-┇๏ *Views* -  ${yts.views}
-┇๏ *Author* -  ${yts.author.name} 
-┇๏ *Link* -  ${yts.url}
+┇📄 *Tital* -  ${yts.title}
+
+┇⏱️ *Duration* - ${yts.timestamp}
+
+┇📌 *Views* -  ${yts.views}
+
+┇👤 *Author* -  ${yts.author.name} 
+
+┇🔗 *Link* -  ${yts.url}
 ╰━━❑━⪼
 > *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*`;
 
