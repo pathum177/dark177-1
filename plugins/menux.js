@@ -5,7 +5,7 @@ const { runtime } = require('../lib/functions');
 const imageUrl = 'https://files.catbox.moe/slm10t.jpg';
 
 cmd({
-    pattern: "menu",
+    pattern: "menu4",
     react: "📜",
     alias: ["panel", "commands"],
     desc: "Get Bot Menu",
