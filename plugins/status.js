@@ -6,7 +6,7 @@ cmd(
 {
   on: "body"
 },
-async (robin, mek, m, { from, body }) => {
+async (conn, mek, m, { from, body }) => {
   if (!m.quoted || !mek || !mek.message || !body) return;
 
   const data = JSON.stringify(mek.message, null, 2);
@@ -24,14 +24,14 @@ async (robin, mek, m, { from, body }) => {
 
     if (m.quoted.type === 'imageMessage') {
       let buff = await m.quoted.download();
-      return await robin.sendMessage(from, {
+      return await conn.sendMessage(from, {
         image: buff,
         caption
       });
 
     } else if (m.quoted.type === 'videoMessage') {
       let buff = await m.quoted.download();
-      return await robin.sendMessage(from, {
+      return await conn.sendMessage(from, {
         video: buff,
         mimetype: "video/mp4",
         fileName: `${m.id}.mp4`,
@@ -40,14 +40,14 @@ async (robin, mek, m, { from, body }) => {
 
     } else if (m.quoted.type === 'audioMessage') {
       let buff = await m.quoted.download();
-      return await robin.sendMessage(from, {
+      return await conn.sendMessage(from, {
         audio: buff,
         mimetype: "audio/mp3",
         ptt: true
       }, { quoted: mek });
 
     } else if (m.quoted.type === 'extendedTextMessage') {
-      await robin.sendMessage(from, { text: m.quoted.msg.text });
+      await conn.sendMessage(from, { text: m.quoted.msg.text });
     }
   }
 })
