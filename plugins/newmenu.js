@@ -15,9 +15,15 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     if (!isOwner) return reply("❌ You are not the owner!");
     try {
-        let desc = `*DARK SHADOW MENU LIST*_
+        let desc = `*DARK SHADOW MENU LIST*_ 
+  ╭─「 ᴄᴏᴍᴍᴀɴᴅꜱ ᴘᴀɴᴇʟ」 ──●●►     
+ *⏳ Uptime*:  ${runtime(process.uptime())} 
+ *📂 Ram usage*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
+ *⚙️ HostName*: ${os.hostname()}
+ *👨‍💻 Owner*: Pathum Malsara
+╰───────────●●►
 
-
+* *🔢 Reply Below This Number*
 ╭═════════════════○
 *1┃• AI*
 *2┃• ANIME*
@@ -34,9 +40,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 ╰═══════════════════○
 
 
-* *🔢 Reply Below This Number*
-
-> *🄿🄾🅆🄴🅁🄳 🅱🆈 DARK SHADOW-MD 😈*`;
+> © *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ*`;
 
         const vv = await conn.sendMessage(from, { image: { url: "https://i.ibb.co/3yL2ZL8d/2024-8-23-21h39m1s.jpg"}, caption: desc }, { quoted: mek });
 
