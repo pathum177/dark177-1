@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const handleGreeting = async (m, gss) => {
+const= async (m, gss) => {
   try {
     const textLower = m.body.toLowerCase();
 
@@ -51,4 +51,4 @@ const handleGreeting = async (m, gss) => {
   }
 };
 
-export default handleGreeting;
+
