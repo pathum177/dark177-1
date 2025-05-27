@@ -5,11 +5,11 @@ const { runtime } = require('../lib/functions');
 const axios = require('axios');
 
 cmd({
-    pattern: "setv",
-    alias: ["setv"],
-    desc: "settings the bot",
-    category: "owner",
-    react: "⚙",
+    pattern: "menu",
+    alias: ["menu"],
+    desc: "menu the bot",
+    category: "menu",
+    react: "⚡",
     filename: __filename
 
 
