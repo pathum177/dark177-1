@@ -39,10 +39,11 @@ cmd({
 
 ┇👤 *Author* -  ${yts.author.name}
 
-┇🔗*Link* -  ${yts.url}
+┇🔗 *Link* -  ${yts.url}
 ╰━━❑━⪼
 
-A`;
+
+> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ`;
 
         // Send video details
         await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
@@ -103,6 +104,8 @@ const yt = await ytsearch(q);
 
 ┇🔗 *Link* -  ${yts.url}
 ╰━━❑━⪼
+
+
 > *© Pᴏᴡᴇʀᴇᴅ Bʏ ᴅᴀʀᴋ ꜱʜᴀᴅᴏᴡ ♡*`;
 
 
