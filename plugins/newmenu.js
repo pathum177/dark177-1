@@ -15,12 +15,12 @@ cmd({
 async (conn, mek, m, { from, isOwner, quoted, reply }) => {
     if (!isOwner) return reply("❌ You are not the owner!");
     try {
-        let desc = `* _ 𝓓𝓐𝓡𝓚 𝓢𝓗𝓐𝓓𝓞𝓦 𝑺𝑬𝑻𝑻𝑰𝑵𝑮𝑺....⚙️_
+        let desc = `* _ DARK SHADOW 𝑺𝑬𝑻𝑻𝑰𝑵𝑮𝑺....⚙️_
 
 
 ╭══════════════════════○
 ┣━ *❮❯ 𝗪𝗢𝗥𝗞 𝗠𝗢𝗗𝗘 🧠💨*
-> *❮1❯  Public Work__🫂*
+> *❮1❯ .AIMENU*
 > *❮2❯  Private Work__❗*
 > *❮3❯  Group Only__👥*
 > *❮➊.➍❯  Inbox Only__👤*
@@ -79,72 +79,72 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
                 switch (selectedOption) {
                     case '1':
-                        reply(".MAINMENU OPEN" );
+                        reply(".AIMENU OPEN =====⤵️" );
                         break;
                     case '2':               
-                        reply(".update MODE:private");
+                        reply(".ANIMEMENU OPEN =====⤵️");
                         break;
-                    case '1.3':               
-                          reply(".update MODE:group");
+                    case '3':               
+                          reply(".REACTIONS OPEN =====⤵️");
                       break;
-                    case '1.4':     
-                        reply(".update MODE:inbox");
+                    case '4':     
+                        reply(".CONVERTMENU OPEN =====⤵️");
                       break;
-                    case '2.1':     
-                        reply(".update AUTO_VOICE:true");
+                    case '5':     
+                        reply(".FUNMENU OPEN =====⤵️ ");
                         break;
-                    case '2.2':     
-                        reply(".update AUTO_VOICE:false");
+                    case '6':     
+                        reply(".DLMENU OPEN =====⤵️");
                     break;
-                    case '3.1':    
-                        reply(".update AUTO_READ_STATUS:true");
+                    case '7':    
+                        reply(".LISTCMD OPEN =====⤵️");
                     break;
-                    case '3.2':    
-                        reply(".update AUTO_READ_STATUS:false");
+                    case '8':    
+                        reply(".MAINMENU OPEN =====⤵️");
                     break;                    
-                    case '4.1':    
-                        reply(".update AUTO_STICKER:true");
+                    case '9':    
+                        reply(".GROUPMENU OPEN =====⤵️");
                     break;
-                    case '4.2':    
-                        reply(".update AUTO_STICKER:false");
+                    case '1':    
+                        reply(".ALLMENU OPEN =====⤵️");
                     break;                                        
-                    case '5.1':    
-                        reply(".update AUTO_REPLY:true");
+                    case '11':    
+                        reply(".OWNERMENU OPEN =====⤵️");
                     break;
-                    case '5.2':    
-                        reply(".update AUTO_REPLY:false");
+                    case '12':    
+                        reply(".OTHERMENU OPEN =====⤵️");
                     break;                        
-                    case '6.1':    
-                        reply(".update ALLWAYS_OFFLINE:true");
+                    case '16':    
+                        reply(".REPO OPEN =====⤵️");
                     break; 
-                    case '6.2':    
+                    case '17':    
                         reply(".update ALLWAYS_OFFLINE:false");
                     break;                       
-                    case '7.1':    
+                    case '18':    
                         reply(".update READ_MESSAGE:true");
                     break;
-                    case '7.2':    
+                    case '19':    
                         reply(".update READ_MESSAGE:false");
                     break;
-                    case '8.1':    
+                    case '20':    
                         reply(".update config.AUTO_REACT:true");
                     break;
-                    case '8.2':    
+                    case '21':    
                         reply(".update config.AUTO_REACT:false");
                     break;
-                    case '9.1':    
+                    case '22':    
                         reply(".update ANTI_LINK:true");
                     break;
-                    case '9.2':    
+                    case '23':    
                         reply(".update ANTI_LINK:false");
                     break;
-                    case '9.3':    
+                    case '24':    
                         reply(".update ANTI_LINK:fales");
                     break;
-                    case '10.1':
+                    case '25':
                         reply(".update AUTO_REACT_STATUS:true");
                     break;
-                    case '10.2':
+                    case '26':
                         reply(".update AUTO_REACT_STATUS:fales");
                     break;
                     default:
